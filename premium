@@ -1,1 +1,318 @@
-bro stop
+local decalsyeeted = true
+local g = game
+local w = g.Workspace
+local l = g.Lighting
+local t = w.Terrain
+t.WaterWaveSize = 0
+t.WaterWaveSpeed = 0
+t.WaterReflectance = 0
+t.WaterTransparency = 0
+l.GlobalShadows = false
+l.FogEnd = 9e9
+l.Brightness = 0
+settings().Rendering.QualityLevel = "Level01"
+for i, v in pairs(g:GetDescendants()) do
+    if v:IsA("Part") or v:IsA("Union") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
+        v.Material = "Plastic"
+        v.Reflectance = 0
+    elseif v:IsA("Decal") or v:IsA("Texture") and decalsyeeted then
+        v.Transparency = 1
+    elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+        v.Lifetime = NumberRange.new(0)
+    elseif v:IsA("Explosion") then
+        v.BlastPressure = 1
+        v.BlastRadius = 1
+    elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") then
+        v.Enabled = false
+    elseif v:IsA("MeshPart") then
+        v.Material = "Plastic"
+        v.Reflectance = 0
+        v.TextureID = 10385902758728957
+    end
+end
+for i, e in pairs(l:GetChildren()) do
+    if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
+        e.Enabled = false
+    end
+end
+
+game.ReplicatedStorage.DefaultChatSystemChatEvents.OnMessageDoneFiltering.OnClientEvent:Connect(function(Message)
+    if (game:GetService("Players")[Message.FromSpeaker].UserId) == getgenv().Settings.Controller then
+        if Message.Message:lower() == getgenv().Settings.Prefix.."drop" then
+            if game.Players.LocalPlayer.UserId ~= getgenv().Settings.Controller then
+                getgenv().dropper = true;
+                while wait() do
+                    if getgenv().dropper == true then
+                        game:GetService("ReplicatedStorage").MainEvent:FireServer("DropMoney", 10000)
+                    end
+                end
+            end
+        end
+    end
+end)
+game.ReplicatedStorage.DefaultChatSystemChatEvents.OnMessageDoneFiltering.OnClientEvent:Connect(function(Message)
+    if (game:GetService("Players")[Message.FromSpeaker].UserId) == getgenv().Settings.Controller then
+        if Message.Message:lower() == getgenv().Settings.Prefix.."stop" then
+            if game.Players.LocalPlayer.UserId ~= getgenv().Settings.Controller then
+                getgenv().dropper = false;
+                --[[while wait() do
+                    if getgenv().dropper == true then
+                        game:GetService("ReplicatedStorage").MainEvent:FireServer("DropMoney", 10000)
+                    end
+                end--]]
+            end
+        end
+    end
+end)
+game.ReplicatedStorage.DefaultChatSystemChatEvents.OnMessageDoneFiltering.OnClientEvent:Connect(function(Message)
+    if (game:GetService("Players")[Message.FromSpeaker].UserId) == getgenv().Settings.Controller then
+        if Message.Message:lower() == getgenv().Settings.Prefix.."crash" then
+            if game.Players.LocalPlayer.UserId ~= getgenv().Settings.Controller then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/22kristina/dhcrash_gen2/main/crash", true))()
+            end
+        end
+    end
+end)
+game.ReplicatedStorage.DefaultChatSystemChatEvents.OnMessageDoneFiltering.OnClientEvent:Connect(function(Message)
+    if (game:GetService("Players")[Message.FromSpeaker].UserId) == getgenv().Settings.Controller then
+        if Message.Message:lower() == getgenv().Settings.Prefix.."bank" then
+            if game.Players.LocalPlayer.UserId ~= getgenv().Settings.Controller then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-374.623016, 21.2499924, -304.187927, 0.998606861, 6.84361439e-08, -0.0527673215, -6.88003112e-08, 1, -5.08486053e-09, 0.0527673215, 8.7081844e-09, 0.998606861)
+                wait(0.2)
+                game.Players.LocalPlayer.Character.LowerTorso.Anchored = true
+                game.Players.LocalPlayer.Character.UppperTorso.Anchored = true
+            end
+        end
+    end
+end)
+game.ReplicatedStorage.DefaultChatSystemChatEvents.OnMessageDoneFiltering.OnClientEvent:Connect(function(Message)
+    if (game:GetService("Players")[Message.FromSpeaker].UserId) == getgenv().Settings.Controller then
+        if Message.Message:lower() == getgenv().Settings.Prefix.."vault" then
+            if game.Players.LocalPlayer.UserId ~= getgenv().Settings.Controller then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-871.482056, -38.4068375, -574.524414, -0.999030948, 0, 0.0440135598, 0, 1, 0, -0.0440135598, 0, -0.999030948)
+                wait(0.2)
+                game.Players.LocalPlayer.Character.LowerTorso.Anchored = true
+                game.Players.LocalPlayer.Character.UppperTorso.Anchored = true
+            end
+        end
+    end
+end)
+game.ReplicatedStorage.DefaultChatSystemChatEvents.OnMessageDoneFiltering.OnClientEvent:Connect(function(Message)
+    if (game:GetService("Players")[Message.FromSpeaker].UserId) == getgenv().Settings.Controller then
+        if Message.Message:lower() == getgenv().Settings.Prefix.."grave" then
+            if game.Players.LocalPlayer.UserId ~= getgenv().Settings.Controller then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(177.874054, 11.7499971, 65.0361633, 0.999246478, -9.8487952e-08, -0.0388140604, 1.01006343e-07, 1, 6.29225809e-08, 0.0388140604, -6.67956357e-08, 0.999246478)
+                wait(0.2)
+                game.Players.LocalPlayer.Character.LowerTorso.Anchored = true
+                game.Players.LocalPlayer.Character.UppperTorso.Anchored = true
+            end
+        end
+    end
+end)
+game.ReplicatedStorage.DefaultChatSystemChatEvents.OnMessageDoneFiltering.OnClientEvent:Connect(function(Message)
+    if (game:GetService("Players")[Message.FromSpeaker].UserId) == getgenv().Settings.Controller then
+        if Message.Message:lower() == getgenv().Settings.Prefix.."block" then
+            if game.Players.LocalPlayer.UserId ~= getgenv().Settings.Controller then
+                local args = {
+                    [1] = "Block",
+                    [2] = true
+                }
+                
+                game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
+            end
+        end
+    end
+end)
+game.ReplicatedStorage.DefaultChatSystemChatEvents.OnMessageDoneFiltering.OnClientEvent:Connect(function(Message)
+    if (game:GetService("Players")[Message.FromSpeaker].UserId) == getgenv().Settings.Controller then
+        if Message.Message:lower() == getgenv().Settings.Prefix.."unblock" then
+            if game.Players.LocalPlayer.UserId ~= getgenv().Settings.Controller then
+                local args = {
+                    [1] = "Block",
+                    [2] = false
+                }
+                
+                game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
+            end
+        end
+    end
+end)
+game.ReplicatedStorage.DefaultChatSystemChatEvents.OnMessageDoneFiltering.OnClientEvent:Connect(function(Message)
+    if (game:GetService("Players")[Message.FromSpeaker].UserId) == getgenv().Settings.Controller then
+        if Message.Message:lower() == getgenv().Settings.Prefix.."afk" then
+            if game.Players.LocalPlayer.UserId ~= getgenv().Settings.Controller then
+                if game.Players.LocalPlayer.UserId ~= getgenv().Settings.User then
+                local vu = game:GetService("VirtualUser")
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+wait(1)
+vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+end)
+            end
+        end
+    end
+end)
+game.ReplicatedStorage.DefaultChatSystemChatEvents.OnMessageDoneFiltering.OnClientEvent:Connect(function(Message)
+    if (game:GetService("Players")[Message.FromSpeaker].UserId) == getgenv().Settings.Controller then
+        if Message.Message:lower() == getgenv().Settings.Prefix.."freeze" then
+            if game.Players.LocalPlayer.UserId ~= getgenv().Settings.Controller then
+                game.Players.LocalPlayer.Character.LowerTorso.Anchored = true
+                game.Players.LocalPlayer.Character.UppperTorso.Anchored = true
+            end
+        end
+    end
+end)
+game.ReplicatedStorage.DefaultChatSystemChatEvents.OnMessageDoneFiltering.OnClientEvent:Connect(function(Message)
+    if (game:GetService("Players")[Message.FromSpeaker].UserId) == getgenv().Settings.Controller then
+        if Message.Message:lower() == getgenv().Settings.Prefix.."unfreeze" then
+            if game.Players.LocalPlayer.UserId ~= getgenv().Settings.Controller then
+                game.Players.LocalPlayer.Character.LowerTorso.Anchored = false
+                game.Players.LocalPlayer.Character.UppperTorso.Anchored = false
+            end
+        end
+    end
+end)
+game.ReplicatedStorage.DefaultChatSystemChatEvents.OnMessageDoneFiltering.OnClientEvent:Connect(function(Message)
+    if (game:GetService("Players")[Message.FromSpeaker].UserId) == getgenv().Settings.Controller then
+        if Message.Message:lower() == getgenv().Settings.Prefix.."airlock" then
+            if game.Players.LocalPlayer.UserId ~= getgenv().Settings.Controller then
+                local plrpos = game.Players.LocalPlayer.Character:FindFirstChild('HumanoidRootPart').Position
+                game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+                game.Players.LocalPlayer.Character:FindFirstChild('HumanoidRootPart').CFrame = CFrame.new(plrpos.X, plrpos.Y + 9, plrpos.Z)
+
+		wait(0.02)
+                
+		game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/22kristina/swag/main/admin_fly', true))()
+            end
+        end
+    end
+end)
+game.ReplicatedStorage.DefaultChatSystemChatEvents.OnMessageDoneFiltering.OnClientEvent:Connect(function(Message)
+    if (game:GetService("Players")[Message.FromSpeaker].UserId) == getgenv().Settings.Controller then
+        if Message.Message:lower() == getgenv().Settings.Prefix.."unairlock" then
+            if game.Players.LocalPlayer.UserId ~= getgenv().Settings.Controller then
+                local plrpos = game.Players.LocalPlayer.Character:FindFirstChild('HumanoidRootPart').Position
+
+                game.Players.LocalPlayer.Character:FindFirstChild('HumanoidRootPart').CFrame = CFrame.new(plrpos.X, plrpos.Y + 9, plrpos.Z)
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/22kristina/swag/main/admin_fly', false))()
+                wait(0.01)
+		game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+            end
+        end
+    end
+end)
+game.ReplicatedStorage.DefaultChatSystemChatEvents.OnMessageDoneFiltering.OnClientEvent:Connect(function(Message)
+    if (game:GetService("Players")[Message.FromSpeaker].UserId) == getgenv().Settings.Controller then
+        if Message.Message:lower() == getgenv().Settings.Prefix.."wallet" then
+            if game.Players.LocalPlayer.UserId ~= getgenv().Settings.Controller then
+                game.Players.LocalPlayer.Backpack:FindFirstChild('Wallet').Parent = game.Players.LocalPlayer.Character
+            end
+        end
+    end
+end)
+game.ReplicatedStorage.DefaultChatSystemChatEvents.OnMessageDoneFiltering.OnClientEvent:Connect(function(Message)
+    if (game:GetService("Players")[Message.FromSpeaker].UserId) == getgenv().Settings.Controller then
+        if Message.Message:lower() == getgenv().Settings.Prefix.."unwallet" then
+            if game.Players.LocalPlayer.UserId ~= getgenv().Settings.Controller then
+                game.Players.LocalPlayer.Character:FindFirstChild('Wallet').Parent = game.Players.LocalPlayer.Backpack
+            end
+        end
+    end
+end)
+game.ReplicatedStorage.DefaultChatSystemChatEvents.OnMessageDoneFiltering.OnClientEvent:Connect(function(Message)
+    if (game:GetService("Players")[Message.FromSpeaker].UserId) == getgenv().Settings.Controller then
+        if Message.Message:lower() == getgenv().Settings.Prefix.."vibe" then
+            if game.Players.LocalPlayer.UserId ~= getgenv().Settings.Controller then
+                local humanoid = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
+
+                local animation = Instance.new("Animation")
+
+                animation.AnimationId = "http://www.roblox.com/asset/?id=3189776546"
+
+                local animationTrack = humanoid:LoadAnimation(animation)
+
+                animationTrack:Play()
+            end
+        end
+    end
+end)
+game.ReplicatedStorage.DefaultChatSystemChatEvents.OnMessageDoneFiltering.OnClientEvent:Connect(function(Message)
+    if (game:GetService("Players")[Message.FromSpeaker].UserId) == getgenv().Settings.Controller then
+        if Message.Message:lower() == getgenv().Settings.Prefix.."god" then
+            if game.Players.LocalPlayer.UserId ~= getgenv().Settings.Controller then
+                game.Players.LocalPlayer.Character:FindFirstChild("BodyEffects"):FindFirstChild("Attacking"):Destroy()
+            end
+        end
+    end
+end)
+game.ReplicatedStorage.DefaultChatSystemChatEvents.OnMessageDoneFiltering.OnClientEvent:Connect(function(Message)
+    if (game:GetService("Players")[Message.FromSpeaker].UserId) == getgenv().Settings.Controller then
+        if Message.Message:lower() == getgenv().Settings.Prefix.."hide" then
+            if game.Players.LocalPlayer.UserId ~= getgenv().Settings.Controller then
+                game.Players.LocalPlayer.Character:FindFirstChild('HumanoidRootPart').CFrame = CFrame.new(-240.86, 93.37, 283.02)
+
+                wait(0.2)
+            
+                game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+            end
+        end
+    end
+end)
+game.ReplicatedStorage.DefaultChatSystemChatEvents.OnMessageDoneFiltering.OnClientEvent:Connect(function(Message)
+    if (game:GetService("Players")[Message.FromSpeaker].UserId) == getgenv().Settings.Controller then
+        if Message.Message:lower() == getgenv().Settings.Prefix.."reset" then
+            if game.Players.LocalPlayer.UserId ~= getgenv().Settings.Controller then
+                game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+
+                game.Players.LocalPlayer.Character:FindFirstChild('Humanoid').Health = 0
+            end
+        end
+    end
+end)
+for i,v in pairs(getconnections(game.Players.LocalPlayer.Idled)) do
+	v:Disable()
+end
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local TextLabel_2 = Instance.new("TextLabel")
+
+ScreenGui.Parent = game:GetService("CoreGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0, 0, 1.49011612e-08, 0)
+Frame.Size = UDim2.new(1, 0, 1, 0)
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0.339393973, 0, 0.164014697, 0)
+TextLabel.Size = UDim2.new(0, 530, 0, 96)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "Oper Control"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+TextLabel_2.Parent = Frame
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.BorderSizePixel = 0
+TextLabel_2.Position = UDim2.new(0.339393973, 0, 0.252141982, 0)
+TextLabel_2.Size = UDim2.new(0, 530, 0, 60)
+TextLabel_2.Font = Enum.Font.SourceSans
+TextLabel_2.Text = "[PAID]"
+TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.TextScaled = true
+TextLabel_2.TextSize = 14.000
+TextLabel_2.TextWrapped = true
+game:GetService("RunService"):Set3dRenderingEnabled(false)
+setfpscap(5)
+else
+end
